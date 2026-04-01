@@ -37,7 +37,6 @@ public class TrainConsistManagementApp {
         bogieIds.add("BG102");
         bogieIds.add("BG103");
         bogieIds.add("BG101"); // duplicate
-        bogieIds.add("BG102"); // duplicate
 
         System.out.println("\nUnique Bogie IDs:");
         System.out.println(bogieIds);
@@ -45,27 +44,33 @@ public class TrainConsistManagementApp {
         // ================= UC4 =================
         LinkedList<String> orderedTrain = new LinkedList<>();
 
-        // Add bogies
         orderedTrain.add("Engine");
         orderedTrain.add("Sleeper");
         orderedTrain.add("AC");
         orderedTrain.add("Cargo");
         orderedTrain.add("Guard");
 
-        System.out.println("\nInitial Train Order:");
-        System.out.println(orderedTrain);
-
-        // Insert Pantry Car at position 2
         orderedTrain.add(2, "Pantry");
 
-        System.out.println("\nAfter adding Pantry at position 2:");
-        System.out.println(orderedTrain);
-
-        // Remove first and last bogie
         orderedTrain.removeFirst();
         orderedTrain.removeLast();
 
         System.out.println("\nFinal Ordered Train Consist:");
         System.out.println(orderedTrain);
+
+        // ================= UC5 =================
+        LinkedHashSet<String> formation = new LinkedHashSet<>();
+
+        // Add bogies
+        formation.add("Engine");
+        formation.add("Sleeper");
+        formation.add("Cargo");
+        formation.add("Guard");
+
+        // Duplicate attempt
+        formation.add("Sleeper"); // ignored automatically
+
+        System.out.println("\nFinal Train Formation (Ordered & Unique):");
+        System.out.println(formation);
     }
 }
